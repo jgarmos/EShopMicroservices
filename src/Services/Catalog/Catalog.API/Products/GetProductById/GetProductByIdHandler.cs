@@ -3,16 +3,16 @@ using Catalog.API.Models;
 
 namespace Catalog.API.Products.GetProductById;
 
-public record GetgProductByIdQuery(Guid Id) : IQuery<GetProductByIdResult>;
+public record GetProductByIdQuery(Guid Id) : IQuery<GetProductByIdResult>;
 
 public record GetProductByIdResult(Product Product);
 
 internal class GetProductByIdQueryHandler
     (IDocumentSession session, ILogger<GetProductByIdQueryHandler> logger)
-    : IQueryHandler<GetgProductByIdQuery, GetProductByIdResult>
+    : IQueryHandler<GetProductByIdQuery, GetProductByIdResult>
 {
 
-    public async Task<GetProductByIdResult> Handle(GetgProductByIdQuery query, CancellationToken cancellationToken)
+    public async Task<GetProductByIdResult> Handle(GetProductByIdQuery query, CancellationToken cancellationToken)
     {
         logger.LogInformation("GetProductByIdQueryHanlder. Handle called with {@query}", query);
 
